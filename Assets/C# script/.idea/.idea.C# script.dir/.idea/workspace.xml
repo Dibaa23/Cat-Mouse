@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8352656-4595-4e4d-a7c1-cc2dcf130dc3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../C# script.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../C# script.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.C# script.dir/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.C# script.dir/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.C# script.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.C# script.dir/.idea/vcs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f8352656-4595-4e4d-a7c1-cc2dcf130dc3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/BallBouncer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Collision.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,7 +48,7 @@
       <workItem from="1669091675785" duration="54000" />
       <workItem from="1669091829605" duration="17000" />
       <workItem from="1669091865879" duration="545000" />
-      <workItem from="1669092592893" duration="224000" />
+      <workItem from="1669092592893" duration="1088000" />
     </task>
     <servers />
   </component>
