@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8352656-4595-4e4d-a7c1-cc2dcf130dc3" name="Changes" comment="" />
+    <list default="true" id="f8352656-4595-4e4d-a7c1-cc2dcf130dc3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.C# script.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.C# script.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +51,8 @@
       <workItem from="1669091675785" duration="54000" />
       <workItem from="1669091829605" duration="17000" />
       <workItem from="1669091865879" duration="545000" />
-      <workItem from="1669092592893" duration="1088000" />
+      <workItem from="1669092592893" duration="1687000" />
+      <workItem from="1669159311689" duration="8000" />
     </task>
     <servers />
   </component>
