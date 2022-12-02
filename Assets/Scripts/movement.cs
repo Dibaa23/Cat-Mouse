@@ -29,5 +29,6 @@ public class movement : MonoBehaviour
         else {
             transform.Rotate(0f, 0f, Random.Range(-0.5f, 0.5f));
         }
+
     }
 }
