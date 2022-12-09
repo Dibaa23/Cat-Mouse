@@ -6,7 +6,6 @@ public class movement : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
-    private bool boost = false;
     private float speed = 10f;
     
 
@@ -43,21 +42,6 @@ public class movement : MonoBehaviour
 
     public void thrust() {
         rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
-
-        if (Input.GetKeyDown("w"))
-        {
-            dust.Play();
-            boost = true;
-        }
-
-        if (Input.GetKey("w") && boost)
-        {
-            speed = 20f;
-        }
-
-        else {
-            speed = 10f;
-        }
-
+        dust.Play();
     }
 }
