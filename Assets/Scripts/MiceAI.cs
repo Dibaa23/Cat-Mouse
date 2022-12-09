@@ -72,5 +72,10 @@ public class MiceAI : MonoBehaviour
         {
             random = 3;
         }
+
+        if (col.gameObject.tag == "Player")
+        {
+            random = 3;
+        }
     }
 }
