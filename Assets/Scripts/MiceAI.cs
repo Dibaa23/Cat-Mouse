@@ -7,16 +7,21 @@ public class MiceAI : MonoBehaviour
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
     private float speed;
-    public float random;
-    private float HP = 1f;
-    private Vector3 offset = new Vector3(0, 1.25f, 0);
+    private float size;
+    private float turn;
+    private float HP;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(8f, 12f);
-        InvokeRepeating("Rando", 1.0f, Random.Range(0.1f, 0.5f));
+        speed = Random.Range(5f, 15f);
+        size = 10f / speed;
+        transform.localScale = new Vector2(size, size);
+        HP =  size / 2f;
+        transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+        transform.position = new Vector3(Random.Range(-12f, 12f), Random.Range(-7f, 7f), transform.position.z);
+        InvokeRepeating("Rando", 1.0f, Random.Range(0.25f, 0.75f));
     }
 
     // Update is called once per frame
@@ -32,19 +37,19 @@ public class MiceAI : MonoBehaviour
     }
     public void rotation()
     {
-        if (random >= Random.Range(7f, 9f))
+        if (turn >= 8f)
         {
-            transform.Rotate(0f, 0f, 1f);
+            transform.Rotate(0f, 0f, Random.Range(0.5f, 1f));
         }
 
-        if (random <= Random.Range(-9f, -7f))
+        if (turn <= -8f)
         {
-            transform.Rotate(0f, 0f, -1f);
+            transform.Rotate(0f, 0f, Random.Range(-1f, -0.5f));
         }
 
-        if (random == 3) {
+        if (turn == 3) {
 
-            transform.Rotate(0f, 0f, Random.Range(2f, 4f));
+            transform.Rotate(0f, 0f, Random.Range(1f, 2f));
         }
 
         else
@@ -55,20 +60,21 @@ public class MiceAI : MonoBehaviour
 
     void Rando() {
 
-        random = Random.Range(-10.0f, 10.0f);
+        turn = Random.Range(-10.0f, 10.0f);
 
     }
 
     public void thrust()
     {
         rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+        dust.Play();
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Player" || col.gameObject.tag == "Bot")
         {
-            random = 3;
+            turn = 3;
         }
     }
 }

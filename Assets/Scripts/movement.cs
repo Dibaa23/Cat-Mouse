@@ -7,10 +7,10 @@ public class movement : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
-    private float speed;
-    private float stamina;
     public Image staminaBorderimg;
     public Image staminaBarimg;
+    private float speed;
+    private float stamina;
     private Vector3 offset = new Vector3(0, 1.2f, 0);
 
 
@@ -49,13 +49,14 @@ public class movement : MonoBehaviour
 
     public void thrust() {
         rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
-        if (stamina > 0f && Input.GetKey(KeyCode.W))
+        dust.Play();
+        if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
-            speed = 20f;
+            speed = 30f;
             stamina -= (2 * Time.deltaTime);
         }
 
-        else if (stamina < 10f && !Input.GetKey(KeyCode.W))
+        else if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
             StartCoroutine("Regen", 3f);
         }
@@ -72,7 +73,7 @@ public class movement : MonoBehaviour
     {
         speed = 10f;
         yield return new WaitForSeconds(duration);
-        if (stamina < 10f && !Input.GetKey(KeyCode.W)) {
+        if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)))) {
             stamina += Time.deltaTime;
         }
     }
