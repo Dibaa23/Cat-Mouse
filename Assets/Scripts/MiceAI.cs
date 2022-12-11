@@ -6,7 +6,7 @@ public class MiceAI : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
-    private float speed = 10f;
+    private float speed;
     public float random;
     private float HP = 1f;
     private Vector3 offset = new Vector3(0, 1.25f, 0);
@@ -15,6 +15,7 @@ public class MiceAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = Random.Range(8f, 12f);
         InvokeRepeating("Rando", 1.0f, Random.Range(0.1f, 0.5f));
     }
 
@@ -31,19 +32,19 @@ public class MiceAI : MonoBehaviour
     }
     public void rotation()
     {
-        if (random >= 8f)
+        if (random >= Random.Range(7f, 9f))
         {
             transform.Rotate(0f, 0f, 1f);
         }
 
-        if (random <= -8f)
+        if (random <= Random.Range(-9f, -7f))
         {
             transform.Rotate(0f, 0f, -1f);
         }
 
-        if (random == 3f) {
+        if (random == 3) {
 
-            transform.Rotate(0f, 0f, 3f);
+            transform.Rotate(0f, 0f, Random.Range(2f, 4f));
         }
 
         else
