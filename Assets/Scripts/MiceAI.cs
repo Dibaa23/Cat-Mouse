@@ -61,19 +61,11 @@ public class MiceAI : MonoBehaviour
     public void thrust()
     {
         rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
-
-        dust.Play();
-
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Obstacle")
-        {
-            random = 3;
-        }
-
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Player" || col.gameObject.tag == "Bot")
         {
             random = 3;
         }

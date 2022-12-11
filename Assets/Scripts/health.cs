@@ -8,7 +8,7 @@ public class health : MonoBehaviour
     public Image healthBorderimg;
     public Image healthBarimg;
     private float HP = 1f;
-    private Vector3 offset = new Vector3(0, 1.25f, 0);
+    private Vector3 offset = new Vector3(0, 1.45f, 0);
 
     // Start is called before the first frame update
     void Start()
