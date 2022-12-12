@@ -90,7 +90,7 @@ public class MiceAI : MonoBehaviour
 
     public void Flee()
     {
-        if (Vector2.Distance(Cat.transform.position, transform.position) <= 5f && (!attack))
+        if (Vector2.Distance(Cat.transform.position, transform.position) <= 10f && (!attack))
         {
             runAway = true;
             transform.Rotate(0f, 0f, Random.Range(0f, 22.5f));
