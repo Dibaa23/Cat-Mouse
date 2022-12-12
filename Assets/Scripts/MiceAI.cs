@@ -4,64 +4,67 @@ using UnityEngine;
 
 public class MiceAI : MonoBehaviour
 {
+    public GameObject Center;
+    public GameObject Cat;
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
     private float speed;
     private float size;
-    private float turn;
     private float HP;
+    private float rotateRate1;
+    private float rotateRate2;
+    private bool runAway;
+    private bool attack;
+    private bool boundrybreach;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Cat = GameObject.Find("Cat");
+        Center = GameObject.Find("Center");
         speed = Random.Range(5f, 15f);
         size = 10f / speed;
         transform.localScale = new Vector2(size, size);
         HP =  size / 2f;
+        runAway = false;
+        attack = false;
+        rotateRate1 = Random.Range(0.25f, 0.50f);
+        rotateRate2 = Random.Range(2.5f, 5.0f);
+        boundrybreach = false;
         transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
-        transform.position = new Vector3(Random.Range(-12f, 12f), Random.Range(-7f, 7f), transform.position.z);
-        InvokeRepeating("Rando", 1.0f, Random.Range(0.25f, 0.75f));
+        transform.position = new Vector3(Random.Range(-26f, 26f), Random.Range(-17f, 17f), transform.position.z);
+        InvokeRepeating("RotateSmall", 1f, rotateRate1);
+        InvokeRepeating("RotateBig", 1f, rotateRate2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotation();
         thrust();
+        Breach();
+        Flee();
+
         if (HP <= 0f)
         {
             Destroy(gameObject);
         }
 
     }
-    public void rotation()
+    void RotateSmall()
     {
-        if (turn >= 8f)
+        if (!runAway || !boundrybreach)
         {
-            transform.Rotate(0f, 0f, Random.Range(0.5f, 1f));
-        }
-
-        if (turn <= -8f)
-        {
-            transform.Rotate(0f, 0f, Random.Range(-1f, -0.5f));
-        }
-
-        if (turn == 3) {
-
-            transform.Rotate(0f, 0f, Random.Range(1f, 2f));
-        }
-
-        else
-        {
-            transform.Rotate(0f, 0f, Random.Range(-0.5f, 0.5f));
+            transform.Rotate(0f, 0f, Random.Range(-22.5f, 22.5f));
         }
     }
 
-    void Rando() {
-
-        turn = Random.Range(-10.0f, 10.0f);
-
+    void RotateBig()
+    {
+        if (!runAway || !boundrybreach)
+        {
+            transform.Rotate(0f, 0f, Random.Range(-45, 45));  
+        }
     }
 
     public void thrust()
@@ -72,9 +75,45 @@ public class MiceAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Player" || col.gameObject.tag == "Bot")
+        if (col.gameObject.tag == "Border")
         {
-            turn = 3;
+            boundrybreach = true;
+            transform.Rotate(0f, 0f, 180);
+            StartCoroutine(Normalize(Random.Range(0.5f, 2f)));
         }
+
+        else if (col.gameObject.tag == "Bot" || col.gameObject.tag == "Mouse")
+        {
+            transform.Rotate(0f, 0f, 90);
+        }
+    }
+
+    public void Flee()
+    {
+        if (Vector2.Distance(Cat.transform.position, transform.position) <= 5f && (!attack))
+        {
+            runAway = true;
+            transform.Rotate(0f, 0f, Random.Range(0f, 22.5f));
+            transform.position = Vector2.MoveTowards(transform.position, Cat.transform.position, Time.deltaTime * (-4f * speed));
+        }
+
+        else
+        {
+            runAway = false;
+        }
+    }
+
+    public void Breach()
+    {
+        if (boundrybreach)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Center.transform.position, Time.deltaTime * (0.25f * speed));
+        }
+    }
+
+    IEnumerator Normalize(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        boundrybreach = false;
     }
 }

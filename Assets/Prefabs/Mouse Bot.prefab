@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e5a39520c117244a5e71713bff7b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Center: {fileID: 0}
+  Cat: {fileID: 0}
   rb2D: {fileID: 7337793570816254352}
   dust: {fileID: 7337793572021960925}
 --- !u!1 &7337793572021960914
