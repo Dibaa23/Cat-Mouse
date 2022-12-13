@@ -26,7 +26,7 @@ public class MiceAI : MonoBehaviour
         Cat = GameObject.Find("Cat");
         Center = GameObject.Find("Center");
         speed = Random.Range(5f, 15f);
-        size = 10f / speed;
+        size = 5f / speed;
         transform.localScale = new Vector2(size, size);
         HP =  size / 2f;
         runAway = false;
