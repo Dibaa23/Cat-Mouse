@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class Cheese : MonoBehaviour
 {
     // Start is called before the first frame update
-    void OnCollisionEnter()
+    void Start()
     {
-        Debug.Log("LES GOOOO");
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

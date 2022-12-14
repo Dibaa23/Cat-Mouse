@@ -13,7 +13,8 @@ public class health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthBorderimg = GameObject.Find("HP Border").GetComponent<Image>();
+        healthBarimg = GameObject.Find("Fill HP").GetComponent<Image>();
     }
 
     // Update is called once per frame

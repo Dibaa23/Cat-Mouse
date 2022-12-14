@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spawner : MonoBehaviour
+{
+    public GameObject botPrefab;
+    public GameObject mousePrefab;
+    public GameObject catPrefab;
+    public GameObject cheesePrefab;
+    public float numBots;
+    public float numCheese;
+    public float maxCheese;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        numCheese = 0f;
+        Instantiate(mousePrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
+        Instantiate(catPrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
+        spawnBots();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        spawnCheese();
+    }
+
+
+    void spawnBots() {
+
+        for (int i = 0; i < numBots; i++)
+        {
+            Instantiate(botPrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
+        }
+
+    }
+
+    void spawnCheese() {
+
+        if (numCheese < maxCheese) {
+            Instantiate(cheesePrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
+            numCheese++;
+        }
+    
+    }
+}
