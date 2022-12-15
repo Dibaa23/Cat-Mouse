@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 6517991774447774858}
   - component: {fileID: 6517991774447774857}
   - component: {fileID: 6517991774447774856}
-  - component: {fileID: 4390601894246672912}
+  - component: {fileID: 344523086782535210}
   m_Layer: 0
   m_Name: Cheese
   m_TagString: Cheese
@@ -546,7 +546,7 @@ PolygonCollider2D:
       - {x: 0.98499995, y: -1.305}
       - {x: 1.105, y: -1.235}
       - {x: 1.2049999, y: -1.155}
---- !u!114 &4390601894246672912
+--- !u!114 &344523086782535210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,6 +555,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6517991774447775093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e796a746a1fe9d40a5a046369b55dd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 047a8ccf0989e08489feadb28e11a7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
