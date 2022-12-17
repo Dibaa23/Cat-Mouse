@@ -50,7 +50,7 @@ public class MiceAI : MonoBehaviour
     {
         thrust();
         Flee();
-        //Feed();
+        Feed();
         Breach();
 
         if (HP <= 0f)
@@ -104,11 +104,11 @@ public class MiceAI : MonoBehaviour
 
     public void Flee()
     {
-        if (Vector2.Distance(Cat.transform.position, transform.position) <= 10f)
+        if (Vector2.Distance(Cat.transform.position, transform.position) <= (Random.Range(5f, 10f)) && !runTo)
         {
             runAway = true;
-            transform.Rotate(0f, 0f, Random.Range(0f, 22.5f));
-            transform.position = Vector2.MoveTowards(transform.position, Cat.transform.position, Time.deltaTime * (-4f * speed));
+            transform.Rotate(0f, 0f, Random.Range(0f, 1f));
+            transform.position = Vector2.MoveTowards(transform.position, Cat.transform.position, Time.deltaTime * ((Random.Range(-1f, -0.25f)) * speed));
         }
 
         else
@@ -119,11 +119,11 @@ public class MiceAI : MonoBehaviour
 
     public void Feed() {
 
-        if (Vector2.Distance(Cheese.transform.position, transform.position) <= 5f && (!runAway))
+        Cheese = GameObject.FindGameObjectWithTag("Cheese");
+        if (Vector2.Distance(Cheese.transform.position, transform.position) <= (Random.Range(5f, 10f)) && !runAway)
         {
             runTo = true;
-            transform.Rotate(0f, 0f, Random.Range(0f, 22.5f));
-            transform.position = Vector2.MoveTowards(transform.position, Cheese.transform.position, Time.deltaTime * (4f * speed));
+            transform.position = Vector2.MoveTowards(transform.position, Cheese.transform.position, Time.deltaTime * ((Random.Range(0.25f, 1f)) * speed));
         }
 
         else
@@ -135,9 +135,9 @@ public class MiceAI : MonoBehaviour
 
     public void Breach()
     {
-        if (boundrybreach && !runAway && !runTo)
+        if (boundrybreach)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Center.transform.position, Time.deltaTime * (0.25f * speed));
+            transform.position = Vector2.MoveTowards(transform.position, Center.transform.position, Time.deltaTime * ((Random.Range(0.05f, 0.50f)) * speed));
         }
     }
 

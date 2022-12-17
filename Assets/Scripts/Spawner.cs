@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
 
     void spawnCheese() {
 
-        if (numCheese < maxCheese) {
+        if ((numCheese < maxCheese) && (numCheese >= 0)) {
             Instantiate(cheesePrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
             numCheese++;
         }
