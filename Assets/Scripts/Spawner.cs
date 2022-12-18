@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject botPrefab;
-    public GameObject mousePrefab;
     public GameObject catPrefab;
     public GameObject cheesePrefab;
     public float numBots;
@@ -16,7 +15,6 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         numCheese = 0f;
-        Instantiate(mousePrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
         Instantiate(catPrefab, new Vector2(Random.Range(-26f, 26f), Random.Range(-17f, 17f)), Quaternion.identity);
         spawnBots();
     }

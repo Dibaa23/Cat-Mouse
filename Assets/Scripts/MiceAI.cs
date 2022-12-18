@@ -61,7 +61,7 @@ public class MiceAI : MonoBehaviour
     }
     void RotateSmall()
     {
-        if (!runAway || !boundrybreach || !runTo)
+        if (!runAway || !runTo)
         {
             transform.Rotate(0f, 0f, Random.Range(-22.5f, 22.5f));
         }
@@ -69,7 +69,7 @@ public class MiceAI : MonoBehaviour
 
     void RotateBig()
     {
-        if (!runAway || !boundrybreach || !runTo)
+        if (!runAway || !boundrybreach || !runAway)
         {
             transform.Rotate(0f, 0f, Random.Range(-45, 45));  
         }

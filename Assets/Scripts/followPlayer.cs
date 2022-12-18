@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections;
-
+	
 public class followPlayer : MonoBehaviour
 {
 	public float interpVelocity;
@@ -14,7 +14,7 @@ public class followPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		target = GameObject.Find("Mouse(Clone)");
+		target = GameObject.FindGameObjectWithTag("Mouse");
 		targetPos = transform.position;
 	}
 
