@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class movement : MonoBehaviour
 {
+    public GameObject Manager;
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
     public Image staminaBorderimg;
@@ -17,6 +18,9 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Manager = GameObject.Find("Spawner");
+        staminaBorderimg = GameObject.Find("Stamina Border").GetComponent<Image>(); 
+        staminaBarimg = GameObject.Find("Fill Stamina").GetComponent<Image>();
         speed = 10f;
         stamina = 10f;
     }
@@ -82,5 +86,14 @@ public class movement : MonoBehaviour
     {
         staminaBorderimg.transform.position = transform.position + offset;
         staminaBarimg.fillAmount = stamina / 10;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Cheese")
+        {
+            Destroy(col.gameObject);
+            Manager.GetComponent<Spawner>().numCheese--;
+        }
     }
 }
