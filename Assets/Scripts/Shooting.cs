@@ -30,6 +30,7 @@ public class Shooting : MonoBehaviour
     {
         ready = false;
         GameObject clone = (GameObject) Instantiate(bullet, ball.position, ball.rotation);
+        Debug.Log(ball.rotation);
         yield return new WaitForSeconds(0.25f);
         ready = true;
         Destroy(clone, 3f);
