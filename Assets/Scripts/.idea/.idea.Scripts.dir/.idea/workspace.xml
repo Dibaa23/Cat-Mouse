@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d842186-546b-4dfd-b963-7d3f5394b22a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Scenes/Cat.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Cat.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scenes/SampleScene 1.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiceAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MiceAI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
