@@ -479,7 +479,7 @@ MonoBehaviour:
   interpVelocity: 0
   minDistance: 2
   followDistance: 0
-  target: {fileID: 0}
+  target: {fileID: 634040741}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &565823501
 GameObject:
@@ -703,6 +703,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634040741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2274786494649430352, guid: 56edf3fdff6774eeeaad208d9519cc1e, type: 3}
+  m_PrefabInstance: {fileID: 1454970876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &704943910
 GameObject:
   m_ObjectHideFlags: 0

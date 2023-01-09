@@ -14,7 +14,7 @@ public class followPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		target = GameObject.Find("Mouse");
+		target = GameObject.Find("PlayerCat");
 		targetPos = transform.position;
 	}
 
