@@ -24,7 +24,7 @@ public class MiceAI : MonoBehaviour
     void Start()
     {
         Manager = GameObject.Find("Spawner");
-        Cat = GameObject.Find("Cat(Clone)");
+        Cat = GameObject.Find("PlayerCat");
         Cheese = GameObject.Find("Cheese(Clone)");
         Center = GameObject.Find("Center");
 
