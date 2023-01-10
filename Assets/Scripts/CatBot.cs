@@ -10,6 +10,11 @@ public class CatBot : MonoBehaviour
     private Vector3 offset = new Vector3(0, 1.2f, 0);
     public List<GameObject> mice = new List<GameObject>();
     public GameObject closestMice;
+    public bool miceFound = false;
+    public Transform ball;
+    public GameObject bullet;
+    public bool ready = true;
+    public GameObject obs;
 
 
     // Start is called before the first frame update
@@ -21,10 +26,24 @@ public class CatBot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotation();
-        thrust();
+        if (!avoidObstacle())
+        {
+            rotation();
+            thrust();
+        }
+
     }
 
+    public bool avoidObstacle()
+    {
+        return false;
+    }
+    public IEnumerator CMice()
+    {
+        miceFound = false;
+        yield return new WaitForSeconds(5f);
+        miceFound = true;
+    }
     public void FindMice()
     {
         GameObject closest = null;
@@ -47,33 +66,55 @@ public class CatBot : MonoBehaviour
 
     public void rotation()
     {
-        FindMice();
-        double x = transform.position.x - closestMice.transform.position.x + 2;
-        double y = transform.position.y - closestMice.transform.position.y;
-        double deg = Math.Atan(y / x) * 2 / 3.1415926;
-        if (deg > 0)
+        if (!miceFound)
         {
-            deg -= 1;
+            FindMice();
         }
-        else
+        StartCoroutine(CMice());
+        Vector3 dir = closestMice.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.x - 1.5f, dir.y) * Mathf.Rad2Deg;
+        angle = 90 - angle;
+        if (angle > 180)
         {
-            deg += 1;
+            angle -= 360;
         }
 
-        Debug.Log(x);
-        Debug.Log(y);
-        Debug.Log(transform.rotation.z);
-        Debug.Log(deg);
-
-        if (deg - transform.rotation.z > 0)
+        angle -= transform.rotation.z * 180;
+        Debug.Log(angle);
+        Debug.Log(transform.rotation.z * 180);
+        if (angle > 0)
         {
             transform.Rotate(0f, 0f, 1f);
         }
 
-        if (deg - transform.rotation.z < 0)
+        if (angle < 0)
         {
             transform.Rotate(0f, 0f, -1f);
         }
+
+        if (angle > -3 && angle < 3)
+        {
+            shoot();
+        }
+    }
+    
+    void shoot()
+    {
+        if (!ready)
+        {
+            return;
+        }
+        StartCoroutine(CD());
+    }
+         
+    public IEnumerator CD()
+    {
+        ready = false;
+        GameObject clone = (GameObject) Instantiate(bullet, ball.position, ball.rotation);
+        Debug.Log(ball.rotation);
+        yield return new WaitForSeconds(0.25f);
+        ready = true;
+        Destroy(clone, 3f);
     }
 
     public void thrust() {
